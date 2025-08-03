@@ -1,0 +1,10 @@
+numpy
+pandas
+scipy
+scikit-learn
+xgboost
+optuna
+shap
+gdown
+category_encoders
+joblib

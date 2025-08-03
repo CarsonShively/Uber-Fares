@@ -1,0 +1,1 @@
+[Model pipeline .pkl in Drive](https://drive.google.com/uc?id=1dBDMnz4nxlBF3phIXEhM5GZGOkP49QKt)

@@ -1,0 +1,41 @@
+project: uber_fares
+entities:
+  - name: ride
+    join_key: key
+
+sources:
+  - name: gold_uf
+    path: data_local/gold_uf.parquet
+    event_timestamp: pickup_datetime      # must be UTC
+    created_timestamp: created_at         # optional; drop if you don't have it
+
+feature_views:
+  - name: fare_base
+    entities: [ride]
+    source: gold_uf
+    schema:
+      - {name: t_year, dtype: int64}
+      - {name: t_month, dtype: int64}
+      - {name: t_day_of_week, dtype: int64}
+      - {name: t_hour, dtype: int64}
+      - {name: t_weekend, dtype: int32}
+      - {name: passenger_count_clean, dtype: int32}
+      - {name: geo_haversine_mi, dtype: float64}
+      - {name: geo_manhattan_mi, dtype: float64}
+      - {name: geo_bearing_deg, dtype: float64}
+
+label:
+  name: label            # keep labels out of online serving later
+  dtype: float64
+
+# Optional: explicitly freeze the order used to assemble model vectors
+serving_order:
+  - t_year
+  - t_month
+  - t_day_of_week
+  - t_hour
+  - t_weekend
+  - passenger_count_clean
+  - geo_haversine_mi
+  - geo_manhattan_mi
+  - geo_bearing_deg

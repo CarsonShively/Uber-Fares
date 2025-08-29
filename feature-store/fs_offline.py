@@ -32,10 +32,3 @@ def load_gold_df(registry: str, limit: Optional[int] = None) -> pd.DataFrame:
     con = duckdb.connect()
     q = f"SELECT * FROM read_parquet('{gold}')" + (f" LIMIT {limit}" if limit else "")
     return con.sql(q).to_df()
-
-# Optional: tiny smoke test when running this file directly
-if __name__ == "__main__":
-    REG_URL = "https://raw.githubusercontent.com/CarsonShively/Uber-Fares/main/feature-store/registry.yaml"
-    df = load_gold_df(REG_URL, limit=5)
-    print(df)           # preview only (remove if you truly want zero output)
-

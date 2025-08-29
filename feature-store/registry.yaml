@@ -1,13 +1,16 @@
 project: uber_fares
+
 entities:
   - name: ride
     join_key: key
 
 sources:
   - name: gold_uf
-    path: data_local/gold_uf.parquet
-    event_timestamp: pickup_datetime      # must be UTC
-    created_timestamp: created_at         # optional; drop if you don't have it
+    # --- Hugging Face dataset location (source of truth) ---
+    repo_id: Carson-Shively/uber-fares
+    revision: main            # pin to a tag/commit when ready (e.g., babb68a)
+    filename: data/gold/gold_uf.parquet
+    event_timestamp: pickup_datetime      # UTC
 
 feature_views:
   - name: fare_base
@@ -25,10 +28,9 @@ feature_views:
       - {name: geo_bearing_deg, dtype: float64}
 
 label:
-  name: label            # keep labels out of online serving later
+  name: label
   dtype: float64
 
-# Optional: explicitly freeze the order used to assemble model vectors
 serving_order:
   - t_year
   - t_month

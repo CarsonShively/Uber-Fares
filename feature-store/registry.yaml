@@ -1,16 +1,14 @@
 project: uber_fares
-
 entities:
   - name: ride
     join_key: key
 
 sources:
   - name: gold_uf
-    # --- Hugging Face dataset location (source of truth) ---
     repo_id: Carson-Shively/uber-fares
-    revision: main            # pin to a tag/commit when ready (e.g., babb68a)
+    revision: main
     filename: data/gold/gold_uf.parquet
-    event_timestamp: pickup_datetime      # UTC
+    event_timestamp: pickup_datetime  # kept for future-proofing
 
 feature_views:
   - name: fare_base

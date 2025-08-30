@@ -4,13 +4,13 @@ from typing import Optional
 import requests, yaml, duckdb, pandas as pd
 from huggingface_hub import hf_hub_download
 
-def load_registry(registry: str) -> dict:
-    """Load registry.yaml from a raw GitHub URL or local path."""
-    if registry.startswith(("http://", "https://")):
-        r = requests.get(registry); r.raise_for_status()
-        return yaml.safe_load(r.text)
-    with open(registry, "r") as f:
-        return yaml.safe_load(f)
+def resolve_to_local_path(src: dict) -> str:
+    return hf_hub_download(
+        repo_id=src["repo_id"],
+        filename=src["filename"],
+        revision=src.get("revision", "main"),
+        repo_type=src.get("repo_type", "dataset"),
+    )
 
 def resolve_gold_path(reg: dict) -> str:
     """Return a local path to the HF-cached Parquet (or local override if present)."""

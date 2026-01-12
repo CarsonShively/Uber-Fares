@@ -1,18 +1,10 @@
-# Uber-Fares
+# Uber-Fares ML project
 
-## The plan was to use a stacked model consisting of linear regression, random forrest, and xgboost, with ridge as the meta model.
+This project implements a stacked model consisting of XGBoost, LightGBM, and Quantile base learners with a Gradient Boosting meta model, using a gradio UI to demo.
 
-Dataset - https://drive.google.com/file/d/1nvFRd8uiUV8OfoihMOXZ0Emle1ksxwW1/view?usp=sharing
+## Hugging Face Demo: 
 
-Total rows ~ 200,000
-
-## Final metrics
-
-## Hold out set metrics
-
-## Key features
-
-## Summary
+## Run Locally:
 
 python3 -m venv .venv
 
@@ -21,3 +13,7 @@ source .venv/bin/activate
 python -m pip install -U pip
 
 pip install -e .
+
+Python3 app.py
+
+http://0.0.0.0:7860

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uber-fares"
+version = "0.1.0"
+dependencies = [
+  "duckdb",
+  "huggingface_hub",
+  "numpy",
+  "pandas",
+  "scikit-learn==1.6.1",
+  "lightgbm",
+  "xgboost",
+  "joblib",
+  "optuna",
+  "gradio",
+  "pydantic"
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+uber_fares = ["**/*.sql"]

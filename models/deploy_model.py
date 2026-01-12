@@ -15,7 +15,7 @@ from pathlib import Path
 
 train_data = hf_hub_download(
         repo_id="Carson-Shively/uber-fares",
-        filename="gold_uf",
+        filename="gold_uf.parquet",
         repo_type="dataset",
         revision="main",
     )

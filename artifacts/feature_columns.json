@@ -1,0 +1,1 @@
+["passenger_count_clean", "t_month", "t_dow", "t_hour", "t_weekend", "pickup_latitude", "pickup_longitude", "dropoff_latitude", "dropoff_longitude", "geo_haversine_mi", "geo_manhattan_mi", "geo_bearing_sin", "geo_bearing_cos", "epsg_sdx_m", "epsg_sdy_m", "epsg_dx_m", "epsg_dy_m", "epsg_manhattan_m", "epsg_euclid_m"]

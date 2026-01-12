@@ -1,0 +1,131 @@
+{
+  "models": [
+    {
+      "model": "lightgbm",
+      "objective_metric": "rmsle_cv",
+      "best_score": 0.2331382494704827,
+      "best_params": {
+        "n_estimators": 1536,
+        "learning_rate": 0.011455971173294806,
+        "max_depth": 9,
+        "num_leaves": 102,
+        "min_child_samples": 65,
+        "min_child_weight": 0.7572941145680039,
+        "min_split_gain": 0.045754591757354676,
+        "reg_lambda": 1.0137565838511768,
+        "reg_alpha": 0.4270391365932309,
+        "subsample": 0.8966012485934016,
+        "subsample_freq": 3,
+        "colsample_bytree": 0.6763000379498749,
+        "max_bin": 488
+      },
+      "quantile_models": [
+        {
+          "alpha": 0.1,
+          "objective_metric": "pinball_loss_cv",
+          "best_score": 0.3496425989314409,
+          "best_params": {
+            "n_estimators": 1049,
+            "learning_rate": 0.04738897994799516,
+            "max_depth": 9,
+            "num_leaves": 318,
+            "min_split_gain": 0.04680559213273095,
+            "min_child_samples": 56,
+            "min_child_weight": 0.0017073967431528124,
+            "reg_lambda": 7.5504986209563665,
+            "reg_alpha": 1.2022300234864176,
+            "subsample": 0.9562108866694068,
+            "subsample_freq": 0,
+            "colsample_bytree": 0.939468448256698,
+            "max_bin": 468,
+            "objective": "quantile",
+            "metric": "quantile",
+            "n_jobs": -1,
+            "random_state": 42,
+            "verbosity": -1,
+            "alpha": 0.1
+          }
+        },
+        {
+          "alpha": 0.9,
+          "objective_metric": "pinball_loss_cv",
+          "best_score": 0.6818833072859606,
+          "best_params": {
+            "n_estimators": 1728,
+            "learning_rate": 0.036264212405738856,
+            "max_depth": 7,
+            "num_leaves": 474,
+            "min_split_gain": 0.02654775061557585,
+            "min_child_samples": 63,
+            "min_child_weight": 0.0015167330688076208,
+            "reg_lambda": 0.02861167865082195,
+            "reg_alpha": 0.777354579378964,
+            "subsample": 0.8907023547660844,
+            "subsample_freq": 6,
+            "colsample_bytree": 0.7248636643427562,
+            "max_bin": 327,
+            "objective": "quantile",
+            "metric": "quantile",
+            "n_jobs": -1,
+            "random_state": 42,
+            "verbosity": -1,
+            "alpha": 0.9
+          }
+        }
+      ]
+    },
+    {
+      "model": "xgboost",
+      "objective_metric": "rmsle_cv",
+      "best_score": 0.23124337292992928,
+      "best_params": {
+        "n_estimators": 1722,
+        "learning_rate": 0.01748081755915497,
+        "max_depth": 7,
+        "min_child_weight": 0.04553167349901099,
+        "subsample": 0.8914920536901483,
+        "colsample_bytree": 0.6726178383908462,
+        "min_split_loss": 0.022060794038152958,
+        "reg_lambda": 7.519941123236492,
+        "reg_alpha": 1.8212239178825262,
+        "max_bin": 469
+      },
+      "quantile_models": [
+        {
+          "alpha": 0.1,
+          "objective_metric": "pinball_loss_cv",
+          "best_score": 0.352423,
+          "chosen_n_estimators": 968,
+          "best_params": {
+            "learning_rate": 0.0518695140025758,
+            "max_depth": 10,
+            "min_child_weight": 5.727904470799623,
+            "subsample": 0.9842241025641474,
+            "colsample_bytree": 0.8092649925838797,
+            "min_split_loss": 0.27656227050693505,
+            "reg_lambda": 0.002489955937346358,
+            "reg_alpha": 0.3919657248382904,
+            "max_bin": 267
+          }
+        },
+        {
+          "alpha": 0.9,
+          "objective_metric": "pinball_loss_cv",
+          "best_score": 0.680734,
+          "chosen_n_estimators": 733,
+          "best_params": {
+            "learning_rate": 0.020165400229396,
+            "max_depth": 5,
+            "min_child_weight": 0.0010521761868451127,
+            "subsample": 0.9723192142682251,
+            "colsample_bytree": 0.847400070346666,
+            "min_split_loss": 0.21870215041229618,
+            "reg_lambda": 2.838382119353614,
+            "reg_alpha": 0.14808930346818072,
+            "max_bin": 348
+          }
+        }
+      ]
+    }
+  ]
+}
